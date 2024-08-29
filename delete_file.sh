@@ -1,6 +1,9 @@
 #!/bin/bash
-
-touch file1 file2 file3
+read -p "Enter the number of file to be created: " n
+for ((i=1; i<=n; i++));
+do
+touch file$i
+done
 
 echo -n "Enter the file name which you want to delete:  "
 read filename
