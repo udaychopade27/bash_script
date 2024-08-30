@@ -5,8 +5,8 @@ read name
 echo -e "Enter the age of user:"
 read age
 
-date=`date +%Y`
+CURR_YEAR=`date +%Y`
 
-num=$((50-$age))
+FIF_YEAR=$((50-$age))
 
-echo "In year $(($date+$num)), $name will become of age 50 years"
+echo "In year $(($CURR_YEAR+$FIF_YEAR)), $name will become of age 50 years"
