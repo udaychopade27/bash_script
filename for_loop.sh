@@ -11,3 +11,4 @@ for FILE in $HOME/uday/*         #list all file and folders in /uday/ dir
 do
 echo $FILE             
 done
+
