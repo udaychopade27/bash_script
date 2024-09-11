@@ -1,0 +1,35 @@
+1.  To print only firstname from csv file
+        awk -F , '{print $2}' <filename>.csv        #$2 represent field of firstname
+
+2.  We can print multiple columns using awk
+         awk -F , '{print $2, $4}' <filename>.csv
+
+3.  To print last column
+        awk -F , '{print $NF}' <filename>.csv
+
+4.  To search a word in csv file
+        awk -F , '/<word to be search>/{print $0}' sample.csv
+
+5.  To print a at start of each Liebermann
+        awk -F , '{print NR, $0}' <filename>.csv
+
+6.  To print a given number of line, let say line number 4
+        awk -F , 'NR==4, {print NR, $0}' <filename>.csv
+
+7.  To Print the range of lines i.e from line 4 to line 6
+        awk -F , 'NR==4, NR==6 {print NR, $0}' <filename>.csv
+
+8.  To print the number of empty lines
+        awk -F , 'NF==0 {print NR}' <filename>.csv       #empty lines means there is no fields in line
+
+9.  To search multiple words in single command
+        awk -F , '/ <1st word> | <2nd word> | <3rd word> / {print $0}' <filename>.csv
+
+10. To make search case-insensitive
+        awk -F , 'BEGIN {IGNORECASE=1} /<word>/ {print $0}' <filename>.csv
+
+11. To check if given character is present in colm or not
+        awk -F, '$<colm number> ~ /<character to search>/ {print $0}' <filename>.csv
+
+12. print data of employee whose id is greater than 190
+        awk -F, '$1>190 {print $0}' sample.csv
