@@ -14,7 +14,8 @@ echo "Even numbers up to $max:"
 while [ $num -le $max ]
 do
     # Check if the number is even using the modulus operator
-    if [ $((num % 2)) -eq 0 ]; then
+    if [ $((num % 2)) -eq 0 ]; 
+    then
         echo $num
     fi
     # Increment the counter
