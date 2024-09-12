@@ -63,5 +63,19 @@
         END{print "sum of values:" sum}'  filename.csv
 
 2. How to find avearge SALARY
-     awk -F, 'NR>1{if($NF>1) count++; sum+=$NF}
-              END{print "sum of salaries: " sum,";" "No of Employees: " count, ";" "Avearege Salary: " sum/count}' employees.csv
+     awk -F, 'BEGIN{sum=0; count=0} 
+              NR>1{if($NF>1) count++; sum+=$NF}              #NR>1{if($NF>1)}  this will remove headers from no of employees and also rmove empty lines from docs 
+              END{print "sum of salaries: " sum, "No of Employees: " count,  "Average Salary: " sum/count}' employees.csv
+
+3. How to print number of lines in a document
+    awk -F, '{} END{print NR} employees.csv
+
+4. How to ignore Headers to count no. of employees correctly and also it will not include empty lines \
+     awk -F, 'BEGIN{count=0} NR>1{if($NF>1) count++} END{print "No. of Employees: " count}' employees.csv
+             #NR>1 it will not count row 1 or header row
+             #if($NF>1) it will not count when it found that no data is in current field
+
+5. print length of longest line 
+      awk -F, '{if(length($0)>max) max=length($0)} END{print "length of longest line is " max}' employees.csv
+
+6. 
