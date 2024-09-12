@@ -33,3 +33,11 @@
 
 12. print data of employee whose id is greater than 190
         awk -F, '$1>190 {print $0}' sample.csv
+
+13. To print all users created in linux
+        cat /etc/passwd | awk -F: '{print "-" $1 "(UID:"$3")"}'
+
+14.  To view status of a processes
+        #in place of nginx we can use any service name
+        systemctl status nginx | awk 'NR==3 {print $0}'          #this command will print entire 3rd line which contains status of a process
+        systemctl status nginx | grep "Active" | awk '{print $2}'      #this line print only active/inactive for that process
