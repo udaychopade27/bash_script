@@ -78,4 +78,15 @@
 5. print length of longest line 
       awk -F, '{if(length($0)>max) max=length($0)} END{print "length of longest line is " max}' employees.csv
 
-6. 
+6. print "High" in new column for salary greater than 10k and else "Low"
+       awk -F, '{if($NF>10000)$9="High"; else $9="Low"; print $0}' employees.csv
+
+7. print total salary paid to one department in employees.csv file, here for "IT_PROG"
+        awk -F, '{if($7=="IT_PROG") sum+=$NF} END{print "Total salary paid to IT_PROG " sum}' employees.csv 
+
+
+Using AWK pattern and condition in a file
+      1. Add our condition and patterns in a file , let say file.awk
+      2. awk -f file.awk <file.txt> 
+we have to add field saperator in above file to use this pattern with csv file
+         awk -F, -f file.awk <file.csv>
