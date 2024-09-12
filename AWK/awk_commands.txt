@@ -10,7 +10,7 @@
 4.  To search a word in csv file
         awk -F , '/<word to be search>/{print $0}' sample.csv
 
-5.  To print a at start of each Liebermann
+5.  To print a at start of each Line and its line number
         awk -F , '{print NR, $0}' <filename>.csv
 
 6.  To print a given number of line, let say line number 4
@@ -37,7 +37,31 @@
 13. To print all users created in linux
         cat /etc/passwd | awk -F: '{print "-" $1 "(UID:"$3")"}'
 
-14.  To view status of a processes
+14. To view status of a processes
         #in place of nginx we can use any service name
         systemctl status nginx | awk 'NR==3 {print $0}'          #this command will print entire 3rd line which contains status of a process
         systemctl status nginx | grep "Active" | awk '{print $2}'      #this line print only active/inactive for that process
+
+15. To list files only names in a column
+        ls -ltr | awk 'NR>1 {print $NF}'                            #NR>1 : condition to not print line 1;  $NF: to print last column in output
+
+
+16. Search for sp.word in file and prints its index and line number
+        awk '/Cam/{print NR, index($0, "Cam")}' sample.csv
+        
+17. Replace word in a file
+        awk '{gsub("Mady", "MADY")}' sample.csv
+
+                                                
+                                                
+                                                
+                                                AWK SCRIPTING
+1. To find sum of values for a column
+
+    awk -F, 'BEGIN{sum=0}                                           #by default it takes space sapertaed values, but if we are uisng csv file we have to -F to give specific filed saperator
+        {sum=sum+$NF}
+        END{print "sum of values:" sum}'  filename.csv
+
+2. How to find avearge SALARY
+     awk -F, 'NR>1{if($NF>1) count++; sum+=$NF}
+              END{print "sum of salaries: " sum,";" "No of Employees: " count, ";" "Avearege Salary: " sum/count}' employees.csv
