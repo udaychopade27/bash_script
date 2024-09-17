@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # Source directory where backup has to be taken
-read -p "Enter directory whose backup hast to be taken" src_dir
-
-
+read -p "Enter directory whose backup hast to be taken: " src_dir
 
 create_backup(){
-     # Target directory where backup files are to be stored
+
+# Target directory where backup files are to be stored
 tgt_dir="$PWD/backup"
 
 # Current timestamp
