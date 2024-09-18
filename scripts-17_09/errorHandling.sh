@@ -10,5 +10,5 @@ error_handler() {
 #trap errors
 trap 'error_handler $LINENO' ERR
 
-mkdi demo
+mkdir demo
 touch file/170-9
