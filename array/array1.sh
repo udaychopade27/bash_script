@@ -12,6 +12,9 @@ echo ${colors[1]}
 echo ${#fruits[@]}
 echo ${#colors[@]}
 
+#Repalce element in an array
+
+
 
 
 
